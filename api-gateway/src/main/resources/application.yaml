@@ -1,0 +1,21 @@
+server:
+  port: 80
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.3.3:8848
+        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
+      discovery:
+        server-addr: 192.168.3.3:8848
+        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
+    sentinel:
+      transport:
+        dashboard: 192.168.3.3:8858
+    gateway:
+      discovery:
+        locator:
+          enabled: true

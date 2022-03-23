@@ -1,0 +1,24 @@
+rootProject.name = 'wrench-cloud'
+
+// 网关
+include 'api-gateway'
+
+// 公用模块
+include 'common'
+include 'common:base-service'
+
+// App模块
+//include 'app'
+//include 'app:order'
+include 'app:order:order-service'
+include 'app:order:order-service-api'
+//include 'app:user'
+include 'app:user:user-service'
+include 'app:user:user-service-api'
+
+
+// 后台模块
+include 'cms'
+include 'cms:cms-user'
+include 'cms:cms-order'
+

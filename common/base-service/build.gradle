@@ -1,0 +1,3 @@
+dependencies {
+    api		"io.github.maodua:wrench-common-spring-boot-starter:${wrenchVersion}"
+}
