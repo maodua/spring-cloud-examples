@@ -2,20 +2,29 @@ server:
   port: 80
 
 spring:
-  application:
-    name: api-gateway
   cloud:
-    nacos:
-      config:
-        server-addr: 192.168.3.3:8848
-        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
-      discovery:
-        server-addr: 192.168.3.3:8848
-        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
     sentinel:
       transport:
-        dashboard: 192.168.3.3:8858
+        # sentinel 地址
+        dashboard: 127.0.0.1:8080
+        # 接收 sentinel 推送规则
+        prot: 8719
     gateway:
       discovery:
         locator:
+          # 启用自动根据服务ID建立路由
           enabled: true
+          lower-case-service-id: true
+
+logging:
+  level:
+    root: info
+
+gateway-config:
+  open-url:
+    GET:
+      - /user/login
+      - /user/register
+    POST:
+      - /user/post1
+      - /user/post2

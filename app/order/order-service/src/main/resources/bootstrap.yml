@@ -1,0 +1,16 @@
+spring:
+  application:
+    # 模块名称
+    name: order
+  cloud:
+    nacos:
+      config:
+        # nacos server地址
+        server-addr: 192.168.3.3:8848
+        # 命名空间
+        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
+        # 配置文件格式
+        file-extension: yaml
+      discovery:
+        server-addr: ${spring.cloud.nacos.config.server-addr}
+        namespace: ${spring.cloud.nacos.config.namespace}

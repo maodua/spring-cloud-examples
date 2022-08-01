@@ -7,7 +7,7 @@ plugins {
 ext {
 	set('springCloudVersion', '2021.0.1')
 	set('springCloudAlibabaVersion', '2021.0.1.0')
-	set('wrenchVersion', '1.1.0')
+	set('wrenchVersion', '1.1.4')
 }
 
 allprojects {
@@ -36,12 +36,12 @@ subprojects {
 	apply plugin: 'io.spring.dependency-management'
 	apply plugin: 'org.springframework.boot'
 
-	dependencyManagement {
-		imports {
-			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
-			mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
-		}
-	}
+//	dependencyManagement {
+//		imports {
+//			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//			mavenBom "com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}"
+//		}
+//	}
 
 	test {
 		// 使用JUnit平台
@@ -49,6 +49,9 @@ subprojects {
 	}
 
 	dependencies {
+		api platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+		api platform("com.alibaba.cloud:spring-cloud-alibaba-dependencies:${springCloudAlibabaVersion}")
+
 		api                     'org.springframework.boot:spring-boot-starter'
 		api 					'org.springframework.cloud:spring-cloud-starter-bootstrap'
 		api						'com.alibaba.cloud:spring-cloud-starter-alibaba-nacos-config'

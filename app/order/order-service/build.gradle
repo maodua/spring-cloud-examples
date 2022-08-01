@@ -1,4 +1,9 @@
 dependencies {
     api		"io.github.maodua:wrench-common-spring-boot-starter:${wrenchVersion}"
     api     'org.springframework.boot:spring-boot-starter-web'
+//    implementation     ('com.alibaba.cloud:spring-cloud-starter-alibaba-seata'){
+//        exclude group: 'io.seata', module: 'seata-spring-boot-starter'
+//    }
+//    implementation 'io.seata:seata-spring-boot-starter:1.5.1'
+
 }

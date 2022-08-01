@@ -1,14 +1,6 @@
 server:
-  port: 0
+  port: 802
 
-spring:
-  application:
-    name: order
-  cloud:
-    nacos:
-      config:
-        server-addr: 192.168.3.3:8848
-        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
-      discovery:
-        server-addr: 192.168.3.3:8848
-        namespace: 2cbda487-8300-4dd5-ac82-b6cb0f985457
+logging:
+  level:
+    root: info
