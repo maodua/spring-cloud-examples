@@ -1,8 +1,10 @@
 package io.github.maodua.order.filter;
 
 import io.github.maodua.order.config.ConfigProperties;
+import io.github.maodua.order.exception.GatewayException;
 import io.github.maodua.order.util.TokenUtil;
 import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
 import org.springframework.core.Ordered;
@@ -25,9 +27,11 @@ public class AuthTokenFilter implements GlobalFilter, Ordered {
         // 获取用户id
         String userId = TokenUtil.getUserId(token);
 
+        if (StringUtils.isBlank(userId)){
+            throw new GatewayException("请登录用户访问");
+        }
 
         exchange.getAttributes().put(ConfigProperties.USER_ID, userId);
-
 
         return chain.filter(exchange);
     }

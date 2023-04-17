@@ -33,6 +33,7 @@ public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
     @SneakyThrows
     @Override
     public Mono<Void> handle(ServerWebExchange exchange, Throwable ex) {
+        log.error("请求错误信息：{}",  ex.getMessage());
         ServerHttpResponse response = exchange.getResponse();
 
         if (exchange.getResponse().isCommitted()) {

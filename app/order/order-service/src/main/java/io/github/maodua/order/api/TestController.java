@@ -1,7 +1,7 @@
 package io.github.maodua.order.api;
 
 
-import io.github.maodua.order.util.SecurityContextHolder;
+import io.github.maodua.common.security.util.ContextHolder;
 import io.github.maodua.wrench.common.bean.Id;
 import io.github.maodua.wrench.common.vo.result.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -15,8 +15,8 @@ public class TestController {
 
     @GetMapping("info")
     public Result<Id> info(){
-        String userId = SecurityContextHolder.getUserId();
-        boolean login = SecurityContextHolder.isLogin();
+        String userId = ContextHolder.getUserId();
+        boolean login = ContextHolder.isLogin();
 
 
         log.info("order  - 是否登录 {}, 当前用户：{}", login, userId);

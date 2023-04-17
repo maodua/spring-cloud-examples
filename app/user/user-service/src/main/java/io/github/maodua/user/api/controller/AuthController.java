@@ -85,8 +85,8 @@ public class AuthController {
         return Map.of(
                 "access_token", access_token,
                 "refresh_token", longToken,
-                "expires_in", TokenUtil.shortDuration,
-                "refresh_expires_in", TokenUtil.longDuration
+                "expires_in", TokenUtil.SHORT_DURATION,
+                "refresh_expires_in", TokenUtil.LONG_DURATION
         );
     }
 
@@ -106,7 +106,7 @@ public class AuthController {
         return Map.of(
                 "access_token", access_token,
                 "refresh_token", refreshToken,
-                "expires_in", TokenUtil.shortDuration,
+                "expires_in", TokenUtil.SHORT_DURATION,
                 "refresh_expires_in", seconds
         );
     }

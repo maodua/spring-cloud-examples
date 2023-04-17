@@ -1,9 +1,9 @@
 package io.github.maodua.user.api.controller;
 
+import io.github.maodua.common.security.util.ContextHolder;
 import io.github.maodua.order.client.OrderClient;
 import io.github.maodua.user.api.entity.User;
 import io.github.maodua.user.api.service.IUserService;
-import io.github.maodua.user.util.SecurityContextHolder;
 import io.github.maodua.wrench.common.bean.Id;
 import io.github.maodua.wrench.common.vo.result.Result;
 import lombok.extern.slf4j.Slf4j;
@@ -11,10 +11,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
-import java.util.Random;
 
 @Slf4j
 @RestController
@@ -37,8 +33,8 @@ public class UserController {
 //        log.info("存：线程 {} 的值 {}", name, random);
 //        log.info("---------------------");
 
-        String userId = SecurityContextHolder.getUserId();
-        boolean login = SecurityContextHolder.isLogin();
+        String userId = ContextHolder.getUserId();
+        boolean login = ContextHolder.isLogin();
 
         Id info = orderClient.info();
 

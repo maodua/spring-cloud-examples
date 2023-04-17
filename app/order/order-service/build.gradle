@@ -5,5 +5,7 @@ dependencies {
 //        exclude group: 'io.seata', module: 'seata-spring-boot-starter'
 //    }
 //    implementation 'io.seata:seata-spring-boot-starter:1.5.1'
+    implementation "io.github.maodua:wrench-cloud-common-security:1.0.1"
+
 
 }
